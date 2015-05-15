@@ -3,10 +3,10 @@
 angular.module('qcs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
+      .state('tools', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/tools/tools.html',
+        controller: 'ToolsCtrl'
       });
 
     $urlRouterProvider.otherwise('/');
