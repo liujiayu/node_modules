@@ -1,16 +1,19 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
+// The 'utils' folder gathers all Sass tools and helpers used across the project.
+@import '../sass/utils/variable';
+@import '../sass/utils/function';
+@import '../sass/utils/mixin';
 
-.thumbnail {
-  height: 200px;
 
-  img.pull-right {
-    width: 50px;
-  }
-}
-// injector
-// endinjector
+// The 'base' folder holds what we might call the boilerplate code for the project.
+@import '../sass/base/reset';
+@import '../sass/base/typography';
+
+
+// The 'partials' folder contains everything that takes part in laying out the site or application.
+@import '../sass/partials/navbar';
+@import '../sass/partials/footer';
+
+
+// The 'pages' folder contains page-specific styles.
+@import '../sass/pages/user';
+@import '../sass/pages/tools';
