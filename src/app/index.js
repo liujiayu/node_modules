@@ -1,19 +1,21 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('qcs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('tools', {
-        url: '/',
-        templateUrl: 'app/tools/tools.html',
-        controller: 'ToolsCtrl'
-      })
-      .state('user', {
-        url: '/user',
-        templateUrl: 'app/user/user.html',
-        controller: 'UserCtrl'
-      });
+  angular.module('qcs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
+    .config(function ($stateProvider, $urlRouterProvider) {
+      $stateProvider
+        .state('tool', {
+          url: '/',
+          templateUrl: 'app/tool/tool.html',
+          controller: 'ToolCtrl'
+        })
+        .state('user', {
+          url: '/user',
+          templateUrl: 'app/user/user.html',
+          controller: 'UserCtrl'
+        });
 
-    $urlRouterProvider.otherwise('/');
-  })
-;
+      $urlRouterProvider.otherwise('/');
+    })
+  ;
+})();
