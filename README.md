@@ -22,10 +22,7 @@ $ gem intall sass
 >Windows : SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
 https://gist.github.com/luislavena/f064211759ee0f806c88
 
- - [Compass]
- ```sh
- $ gem install compass --pre
- ```
+
 ##Usage:
  
 ###[In project root folder]
