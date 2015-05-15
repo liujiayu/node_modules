@@ -1,8 +1,13 @@
 (function() {
   'use strict';
 
-  angular.module('qcs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
-    .config(function ($stateProvider, $urlRouterProvider) {
+  angular
+    .module('qcs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
+    .config(config)
+    .run(run);
+
+    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+    function config ($stateProvider, $urlRouterProvider) {
       $stateProvider
         .state('tool', {
           url: '/',
@@ -16,6 +21,10 @@
         });
 
       $urlRouterProvider.otherwise('/');
-    })
-  ;
+    }
+    
+    run.$inject = ['$rootScope', '$state'];
+    function run($rootScope, $state) {
+      $rootScope.$state = $state;
+    }
 })();

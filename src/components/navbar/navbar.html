@@ -1,16 +1,15 @@
 <nav class="navbar navbar-static-top navbar-inverse" ng-controller="NavbarCtrl">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
+      <a class="navbar-brand" ui-sref="tool">
         <span class="glyphicon glyphicon-home"></span> QCS
       </a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#">Home</a></li>
-        <li><a ng-href="#">About</a></li>
-        <li><a ng-href="#">Contact</a></li>
+        <li ng-class="{ active: $state.includes('tool') }"><a ui-sref="tool">Home</a></li>
+        <li ng-class="{ active: $state.includes('user') }"><a ui-sref="user">User</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
