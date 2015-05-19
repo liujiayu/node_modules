@@ -1,6 +1,11 @@
 <div class="container">
  	<div ng-include="'components/navbar/navbar.html'"></div>
 	<h1>{{ welcomeMessage }}</h1>
+	<div class="pull-right">
+		<span>Search: </span>
+		<input type="text" ng-model="search.userName">		
+	</div>
+
 	<table class="table table-bordered table-hover">
 		<thead>
 			<th>User Name</th>
@@ -10,15 +15,15 @@
 			<th></th>
 		</thead>
 		<tbody>
-			<tr ng-repeat="user in users">
+			<tr ng-repeat="user in users | filter:search">
 				<td>{{ user.userName }}</td>
 				<td>{{ user.name }}</td>
 				<td>{{ user.role }}</td>
 				<td>{{ user.status }}</td>
 				<td>
 					<li>
-						<a href="" ng-click="getUser()">detail</a>
-						<a href="" ng-click="editUser()">edit</a>
+						<a href="" ng-click="openUserModal(user)">detail</a>
+						<a href="" ng-click="openUserModal(user)">edit</a>
 						<a href="" ng-click="deleteUser($index)">delete</a>
 					</li>
 				</td>
