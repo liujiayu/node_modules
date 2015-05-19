@@ -7,6 +7,7 @@
 			<th>Name</th>
 			<th>Roles</th>
 			<th>Status</th>
+			<th></th>
 		</thead>
 		<tbody>
 			<tr ng-repeat="user in users">
@@ -14,6 +15,13 @@
 				<td>{{ user.name }}</td>
 				<td>{{ user.role }}</td>
 				<td>{{ user.status }}</td>
+				<td>
+					<li>
+						<a href="" ng-click="getUser()">detail</a>
+						<a href="" ng-click="editUser()">edit</a>
+						<a href="" ng-click="deleteUser($index)">delete</a>
+					</li>
+				</td>
 			</tr>
 		</tbody>
 	</table>

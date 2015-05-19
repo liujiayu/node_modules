@@ -15,22 +15,25 @@
           status: 'Enabled'  
         },
         {
-          userName: 'admin',
-          name: 'super',
-          role: 'Super-Admin',
+          userName: 'user1',
+          name: 'Abbie',
+          role: 'UHG Employee',
           status: 'Enabled'  
         },
         {
-          userName: 'admin',
-          name: 'super',
+          userName: 'user2',
+          name: 'John',
           role: 'Super-Admin',
-          status: 'Enabled'  
+          status: 'Disabled'  
         }
       ];
 
       return {
         getUsers: function() {
           return users;
+        },
+        deleteUser: function(index) {
+          users.splice(index, 1);
         }
       }
     }
