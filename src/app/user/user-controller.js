@@ -5,8 +5,8 @@
     .module('qcs')
     .controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$scope', 'UserService'];
-    function UserCtrl($scope, UserService) {
+    UserCtrl.$inject = ['$scope', '$modal', 'UserService'];
+    function UserCtrl($scope, $modal, UserService) {
       // Scope variables
       $scope.welcomeMessage = 'Hello, everyone :)';
       $scope.users = UserService.getUsers();
@@ -16,6 +16,7 @@
       $scope.getUser = getUser;
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
+      $scope.openUserModal = openUserModal;
 
 
       function getUsers() {
@@ -33,6 +34,26 @@
       function deleteUser(index) {
         UserService.deleteUser(index);
       }
+
+      function openUserModal(user, size) {
+        var modalInstance = $modal.open({
+          templateUrl: 'app/user/user-detail.html',
+          controller: 'UserDetailCtrl',
+          size: size,
+          windowClass: 'user-modal',
+          resolve: {
+            user: function () {
+              return user;
+            }
+          }
+        });
+
+        modalInstance.result.then(function (selectedUser) {
+          $scope.selected = selectedUser;
+        }, function () {
+          //
+        });
+      };
     }
 
 })();
