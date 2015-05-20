@@ -10,21 +10,33 @@
       var users = [
         {
           userName: 'admin',
-          name: 'super',
+          firstName: 'super',
+          lastName: 'cool',
+          email: 'super@logicsolutions.com',
           role: 'Super-Admin',
-          status: 'Enabled'  
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
         },
         {
           userName: 'user1',
-          name: 'Abbie',
+          firstName: 'Abbie',
+          lastName: 'Huang',
+          email: 'abbie@logicsolutions.com',
           role: 'UHG Employee',
-          status: 'Enabled'  
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
         },
         {
           userName: 'user2',
-          name: 'John',
+          firstName: 'John',
+          lastName: 'Lu',
+          email: 'john@logicsolutions.com',
           role: 'Super-Admin',
-          status: 'Disabled'  
+          lockStatus: 'Unlock',
+          disabledStatus: 'Disabled',
+          defaultLanguage: 'English'
         }
       ];
 

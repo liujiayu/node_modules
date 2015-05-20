@@ -43,7 +43,7 @@
           windowClass: 'user-modal',
           resolve: {
             user: function () {
-              return user;
+              return angular.copy(user);
             }
           }
         });

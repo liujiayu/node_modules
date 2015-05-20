@@ -12,10 +12,17 @@
       $scope.user = user;
 
       // Scope actions
-      $scope.saveUser = saveUser;
+      $scope.updateUser = updateUser;
+      $scope.cancelEdit = cancelEdit;
 
-      function saveUser() {
+
+      function updateUser() {
+        // Make a post action to update user.
         $modalInstance.close();
+      }
+
+      function cancelEdit() {
+        $modalInstance.dismiss('cancel');
       }
     }
 

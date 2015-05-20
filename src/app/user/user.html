@@ -5,7 +5,6 @@
 		<span>Search: </span>
 		<input type="text" ng-model="search.userName">		
 	</div>
-
 	<table class="table table-bordered table-hover">
 		<thead>
 			<th>User Name</th>
@@ -17,9 +16,9 @@
 		<tbody>
 			<tr ng-repeat="user in users | filter:search">
 				<td>{{ user.userName }}</td>
-				<td>{{ user.name }}</td>
+				<td>{{ user.firstName }}</td>
 				<td>{{ user.role }}</td>
-				<td>{{ user.status }}</td>
+				<td>{{ user.disabledStatus }}</td>
 				<td>
 					<li>
 						<a href="" ng-click="openUserModal(user)">detail</a>
