@@ -9,6 +9,7 @@
     function UserService() {
       var users = [
         {
+          id: 1,
           userName: 'admin',
           firstName: 'super',
           lastName: 'cool',
@@ -19,6 +20,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
+          id: 2,
           userName: 'user1',
           firstName: 'Abbie',
           lastName: 'Huang',
@@ -29,6 +31,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
+          id: 3,
           userName: 'user2',
           firstName: 'John',
           lastName: 'Lu',
@@ -44,6 +47,11 @@
         getUsers: function() {
           return users;
         },
+
+        updateUser: function(id) {
+
+        },
+
         deleteUser: function(index) {
           users.splice(index, 1);
         }

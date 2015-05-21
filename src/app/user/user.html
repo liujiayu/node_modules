@@ -20,11 +20,9 @@
 				<td>{{ user.role }}</td>
 				<td>{{ user.disabledStatus }}</td>
 				<td>
-					<li>
-						<a href="" ng-click="openUserModal(user)">detail</a>
-						<a href="" ng-click="openUserModal(user)">edit</a>
-						<a href="" ng-click="deleteUser($index)">delete</a>
-					</li>
+					<a href="" ng-click="editUser(user)"><i class="fa fa-search-plus"></i></a>
+					<a href="" ng-click="editUser(user)"><i class="fa fa-pencil"></i></a>
+					<a href="" ng-click="deleteUser($index)"><i class="fa fa-trash"></i></a>
 				</td>
 			</tr>
 		</tbody>

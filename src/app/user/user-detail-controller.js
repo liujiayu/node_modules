@@ -5,8 +5,8 @@
     .module('qcs')
     .controller('UserDetailCtrl', UserDetailCtrl);
 
-    UserDetailCtrl.$inject = ['$scope', '$modalInstance', 'user'];
-    function UserDetailCtrl($scope, $modalInstance, user) {
+    UserDetailCtrl.$inject = ['$scope', '$modalInstance', 'UserService', 'user'];
+    function UserDetailCtrl($scope, $modalInstance, UserService, user) {
       // Scope variables
       $scope.welcomeMessage = 'This is user detail';
       $scope.user = user;
@@ -16,9 +16,10 @@
       $scope.cancelEdit = cancelEdit;
 
 
-      function updateUser() {
+      function updateUser(id) {
         // Make a post action to update user.
-        $modalInstance.close();
+        UserService.updateUser();
+        $modalInstance.close($scope.user.id);
       }
 
       function cancelEdit() {

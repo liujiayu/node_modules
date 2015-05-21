@@ -16,7 +16,6 @@
       $scope.getUser = getUser;
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
-      $scope.openUserModal = openUserModal;
 
 
       function getUsers() {
@@ -27,15 +26,7 @@
         
       }
 
-      function editUser() {
-        
-      }
-
-      function deleteUser(index) {
-        UserService.deleteUser(index);
-      }
-
-      function openUserModal(user, size) {
+      function editUser(user, size) {
         var modalInstance = $modal.open({
           templateUrl: 'app/user/user-detail.html',
           controller: 'UserDetailCtrl',
@@ -53,7 +44,11 @@
         }, function () {
           //
         });
-      };
+      }
+
+      function deleteUser(index) {
+        UserService.deleteUser(index);
+      }
     }
 
 })();
