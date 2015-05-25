@@ -24,7 +24,7 @@
             <span>Search: </span>
             <input type="text" ng-model="search.userName">      
         </div>
-        <table class="table table-bordered table-hover" st-table="users">
+        <table class="table table-bordered table-striped table-hover" st-table="displayedusers" st-safe-src="users">
             <thead>
                 <th ng-show="showColumn1" st-sort="userName">User Name</th>
                 <th ng-show="showColumn2" st-sort="firstName">Name</th>
@@ -33,7 +33,7 @@
                 <th ng-show="showColumn5"></th>
             </thead>
             <tbody>
-                <tr ng-repeat="user in users | filter:search">
+                <tr ng-repeat="user in displayedusers | filter:search">
                     <td ng-show="showColumn1">{{ user.userName }}</td>
                     <td ng-show="showColumn2">{{ user.firstName }}</td>
                     <td ng-show="showColumn3">{{ user.role }}</td>
@@ -45,6 +45,13 @@
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="5" st-displayed-pages="5" class="pull-right"></div>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

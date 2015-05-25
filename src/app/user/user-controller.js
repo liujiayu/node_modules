@@ -8,15 +8,15 @@
     UserCtrl.$inject = ['$scope', '$modal', 'UserService'];
     function UserCtrl($scope, $modal, UserService) {
       // Scope variables
-      $scope.welcomeMessage = 'Hello, everyone :)';
       $scope.users = UserService.getUsers();
+      $scope.displayedusers = [].concat($scope.users);
       $scope.showColumn1 = true;
       $scope.showColumn2 = true;
       $scope.showColumn3 = true;
       $scope.showColumn4 = true;
       $scope.showColumn5 = true;
       
-      
+
       // Scope actions
       $scope.getUsers = getUsers;
       $scope.getUser = getUser;

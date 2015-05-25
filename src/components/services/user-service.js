@@ -40,6 +40,105 @@
           lockStatus: 'Unlock',
           disabledStatus: 'Disabled',
           defaultLanguage: 'English'
+        },
+        {
+          id: 1,
+          userName: 'admin',
+          firstName: 'super',
+          lastName: 'cool',
+          email: 'super@logicsolutions.com',
+          role: 'Super-Admin',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
+        },
+        {
+          id: 2,
+          userName: 'user1',
+          firstName: 'Abbie',
+          lastName: 'Huang',
+          email: 'abbie@logicsolutions.com',
+          role: 'UHG Employee',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
+        },
+        {
+          id: 3,
+          userName: 'user2',
+          firstName: 'John',
+          lastName: 'Lu',
+          email: 'john@logicsolutions.com',
+          role: 'Super-Admin',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Disabled',
+          defaultLanguage: 'English'
+        },
+        {
+          id: 1,
+          userName: 'admin',
+          firstName: 'super',
+          lastName: 'cool',
+          email: 'super@logicsolutions.com',
+          role: 'Super-Admin',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
+        },
+        {
+          id: 2,
+          userName: 'user1',
+          firstName: 'Abbie',
+          lastName: 'Huang',
+          email: 'abbie@logicsolutions.com',
+          role: 'UHG Employee',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
+        },
+        {
+          id: 3,
+          userName: 'user2',
+          firstName: 'John',
+          lastName: 'Lu',
+          email: 'john@logicsolutions.com',
+          role: 'Super-Admin',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Disabled',
+          defaultLanguage: 'English'
+        },
+        {
+          id: 1,
+          userName: 'admin',
+          firstName: 'super',
+          lastName: 'cool',
+          email: 'super@logicsolutions.com',
+          role: 'Super-Admin',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
+        },
+        {
+          id: 2,
+          userName: 'user1',
+          firstName: 'Abbie',
+          lastName: 'Huang',
+          email: 'abbie@logicsolutions.com',
+          role: 'UHG Employee',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Enabled',
+          defaultLanguage: 'Simplified Chinese'
+        },
+        {
+          id: 3,
+          userName: 'user2',
+          firstName: 'John',
+          lastName: 'Lu',
+          email: 'john@logicsolutions.com',
+          role: 'Super-Admin',
+          lockStatus: 'Unlock',
+          disabledStatus: 'Disabled',
+          defaultLanguage: 'English'
         }
       ];
 
