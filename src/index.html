@@ -14,6 +14,20 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <!-- METRONIC: GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" href="assets/metronic/global/plugins/font-google/css/google-fonts.css">
+    <link rel="stylesheet" href="assets/metronic/global/plugins/simple-line-icons/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/metronic/global/plugins/uniform/css/uniform.default.css">
+    <link rel="stylesheet" href="assets/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+
+    <!-- METRONIC: THEME STYLES  -->
+    <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag  -->
+    <link rel="stylesheet" href="assets/metronic/global/css/components.css">
+    <link rel="stylesheet" href="assets/metronic/global/css/plugins.css">
+    <link rel="stylesheet" href="assets/metronic/admin/layout/css/layout.css">
+    <link rel="stylesheet" href="assets/metronic/admin/layout/css/themes/darkblue.css">
+    <link rel="stylesheet" href="assets/metronic/admin/layout/css/custom.css">
+
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
     <!-- inject:css -->
     <!-- css files will be automaticaly insert here -->
@@ -25,32 +39,32 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- BEGIN PAGE SPINNER -->
+    <!-- METRONIC: BEGIN PAGE SPINNER -->
     <div ng-spinner-bar class="page-spinner-bar">
       <div class="bounce1"></div>
       <div class="bounce2"></div>
       <div class="bounce3"></div>
     </div>
-    <!-- END PAGE SPINNER -->
+    <!-- METRONIC: END PAGE SPINNER -->
     
-    <!-- BEGIN HEADER -->
+    <!-- METRONIC: BEGIN HEADER -->
     <div ng-include="'components/header/header.html'" ng-controller="HeaderCtrl" class="page-header navbar navbar-fixed-top">
     </div>
-    <!-- END HEADER -->
+    <!-- METRONIC: END HEADER -->
 
     <div class="clearfix"></div>
 
     <div class="page-container">
-      <!-- BEGIN CONTENT -->
+      <!-- METRONIC: BEGIN CONTENT -->
         <div class="page-content-wrapper">
           <div class="page-content">
-            <!-- BEGIN ACTUAL CONTENT -->
+            <!-- METRONIC: BEGIN ACTUAL CONTENT -->
             <div ui-view class="fade-in-up">
             </div> 
-            <!-- END ACTUAL CONTENT -->
+            <!-- METRONIC: END ACTUAL CONTENT -->
           </div>  
         </div>
-        <!-- END CONTENT -->
+        <!-- METRONIC: END CONTENT -->
     </div>
 
 
