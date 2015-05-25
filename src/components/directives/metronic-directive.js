@@ -64,7 +64,7 @@
   qcs.directive('dropdownMenuHover', function () {
     return {
       link: function (scope, elem) {
-        elem.dropdownHover();
+        $(elem).dropdownHover();
       }
     };  
   });

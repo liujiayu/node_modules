@@ -19,11 +19,11 @@
   ***/
 
   /* Setup Layout Part - Header */
-  qcs.controller('HeaderController', ['$scope', function($scope) {
-      $scope.$on('$includeContentLoaded', function() {
-          Layout.initHeader(); // init header
-      });
-  }]);
+  // qcs.controller('HeaderCtrl', ['$scope', function($scope) {
+  //     $scope.$on('$includeContentLoaded', function() {
+  //         Layout.initHeader(); // init header
+  //     });
+  // }]);
 
   /* Setup Layout Part - Sidebar */
   qcs.controller('SidebarController', ['$scope', function($scope) {
