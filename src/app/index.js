@@ -14,16 +14,9 @@
     ])
     .config(lazyLoad)
     .config(state)
-    .run(run);
+    .run(run)
+    .controller('AppCtrl', AppCtrl);
 
-
-    /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
-    lazyLoad.$inject = ['$ocLazyLoadProvider']
-    function lazyLoad ($ocLazyLoadProvider) {
-      $ocLazyLoadProvider.config({
-            // global configs go here
-        });
-    }
 
     state.$inject = ['$stateProvider', '$urlRouterProvider'];
     function state ($stateProvider, $urlRouterProvider) {
@@ -59,10 +52,31 @@
 
       $urlRouterProvider.otherwise('/');
     }
+   
     
     run.$inject = ['$rootScope', 'settings', '$state'];
     function run($rootScope, settings, $state) {
       $rootScope.$state = $state;
+    }
+
+
+    /* Metronic: Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
+    lazyLoad.$inject = ['$ocLazyLoadProvider']
+    function lazyLoad ($ocLazyLoadProvider) {
+      $ocLazyLoadProvider.config({
+            // global configs go here
+        });
+    }
+
+
+    /* Metronic: Setup App Main Controller */
+    AppCtrl.$inject = ['$scope', '$rootScope'];
+    function AppCtrl($scope, $rootScope) {
+      $scope.$on('$viewContentLoaded', function() {
+          Metronic.initComponents(); // init core components
+          //Layout.init(); //  Init entire layout(header, footer, sidebar, etc) on page load if the partials included in server side instead of loading with ng-include directive 
+          console.log('AppCtrl initialized.')
+      });
     }
 
 })();
