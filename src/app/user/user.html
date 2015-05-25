@@ -1,43 +1,50 @@
-<div class="container">
- 	<div ng-include="'components/navbar/navbar.html'"></div>
-	<h1>{{ welcomeMessage }}</h1>
+<div class="portlet box blue-madison">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-globe"></i>User List
+        </div>
+        <div class="actions">
+            <div class="btn-group">
+                <a class="btn default" data-toggle="dropdown">
+                Columns <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                    <label><input type="checkbox" checked ng-model="showColumn1">User Name</label>
+                    <label><input type="checkbox" checked ng-model="showColumn2">Name</label>
+                    <label><input type="checkbox" checked ng-model="showColumn3">Roles</label>
+                    <label><input type="checkbox" checked ng-model="showColumn4">Status</label>
+                    <label><input type="checkbox" checked ng-model="showColumn5">Operation</label>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="portlet box blue-madison">
-		<div class="portlet-title">
-			<div class="caption">
-				<i class="fa fa-globe"></i>User List
-			</div>
-			<div class="tools">
-			</div>
-		</div>
-
-		<div class="portlet-body">
-			<div class="pull-right">
-				<span>Search: </span>
-				<input type="text" ng-model="search.userName">		
-			</div>
-			<table class="table table-bordered table-hover">
-				<thead>
-					<th>User Name</th>
-					<th>Name</th>
-					<th>Roles</th>
-					<th>Status</th>
-					<th></th>
-				</thead>
-				<tbody>
-					<tr ng-repeat="user in users | filter:search">
-						<td>{{ user.userName }}</td>
-						<td>{{ user.firstName }}</td>
-						<td>{{ user.role }}</td>
-						<td>{{ user.disabledStatus }}</td>
-						<td>
-							<a href="" ng-click="editUser(user)"><i class="fa fa-search-plus"></i></a>
-							<a href="" ng-click="editUser(user)"><i class="fa fa-pencil"></i></a>
-							<a href="" ng-click="deleteUser($index)"><i class="fa fa-trash"></i></a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+    <div class="portlet-body">
+        <div class="pull-right">
+            <span>Search: </span>
+            <input type="text" ng-model="search.userName">      
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <th ng-show="showColumn1">User Name</th>
+                <th ng-show="showColumn2">Name</th>
+                <th ng-show="showColumn3">Roles</th>
+                <th ng-show="showColumn4">Status</th>
+                <th ng-show="showColumn5"></th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users | filter:search">
+                    <td ng-show="showColumn1">{{ user.userName }}</td>
+                    <td ng-show="showColumn2">{{ user.firstName }}</td>
+                    <td ng-show="showColumn3">{{ user.role }}</td>
+                    <td ng-show="showColumn4">{{ user.disabledStatus }}</td>
+                    <td ng-show="showColumn5">
+                        <a href="" ng-click="editUser(user)"><i class="fa fa-search-plus"></i></a>
+                        <a href="" ng-click="editUser(user)"><i class="fa fa-pencil"></i></a>
+                        <a href="" ng-click="deleteUser($index)"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

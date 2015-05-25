@@ -10,6 +10,11 @@
       // Scope variables
       $scope.welcomeMessage = 'Hello, everyone :)';
       $scope.users = UserService.getUsers();
+      $scope.showColumn1 = true;
+      $scope.showColumn2 = true;
+      $scope.showColumn3 = true;
+      $scope.showColumn4 = true;
+      $scope.showColumn5 = true;
       
       // Scope actions
       $scope.getUsers = getUsers;
