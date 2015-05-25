@@ -24,12 +24,12 @@
             <span>Search: </span>
             <input type="text" ng-model="search.userName">      
         </div>
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover" st-table="users">
             <thead>
-                <th ng-show="showColumn1">User Name</th>
-                <th ng-show="showColumn2">Name</th>
-                <th ng-show="showColumn3">Roles</th>
-                <th ng-show="showColumn4">Status</th>
+                <th ng-show="showColumn1" st-sort="userName">User Name</th>
+                <th ng-show="showColumn2" st-sort="firstName">Name</th>
+                <th ng-show="showColumn3" st-sort="role">Roles</th>
+                <th ng-show="showColumn4" st-sort="disabledStatus">Status</th>
                 <th ng-show="showColumn5"></th>
             </thead>
             <tbody>

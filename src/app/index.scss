@@ -9,6 +9,10 @@
 @import '../sass/base/typography';
 
 
+// The 'components' folder contains all kind of specific modules like a slider, a loader, a widget.
+@import '../sass/components/table';
+
+
 // The 'partials' folder contains everything that takes part in laying out the site or application.
 @import '../sass/partials/navbar';
 @import '../sass/partials/footer';

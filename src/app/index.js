@@ -10,7 +10,8 @@
       'ngResource', 
       'ui.router', 
       'ui.bootstrap',
-      'oc.lazyLoad'
+      'oc.lazyLoad',
+      'smart-table'
     ])
     .config(lazyLoad)
     .config(state)

@@ -16,6 +16,7 @@
       $scope.showColumn4 = true;
       $scope.showColumn5 = true;
       
+      
       // Scope actions
       $scope.getUsers = getUsers;
       $scope.getUser = getUser;
