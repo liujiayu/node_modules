@@ -20,6 +20,7 @@
       // Scope actions
       $scope.getUsers = getUsers;
       $scope.getUser = getUser;
+      $scope.AddUser = AddUser;
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
 
@@ -30,6 +31,26 @@
 
       function getUser() {
         
+      }
+
+      function AddUser(size) {
+        var modalInstance = $modal.open({
+          templateUrl: 'app/user/user-detail.html',
+          controller: 'UserDetailCtrl',
+          size: size,
+          windowClass: 'user-modal',
+          resolve: {
+            user: function () {
+              return {};
+            }
+          }
+        });
+
+        modalInstance.result.then(function (selectedUser) {
+          $scope.selected = selectedUser;
+        }, function () {
+          //
+        });
       }
 
       function editUser(user, size) {

@@ -1,11 +1,11 @@
 <div class="container-fluid">
     <div class="row">
-        <form class="form-horizontal" ng-submit="updateUser()">
+        <form class="form-horizontal" ng-submit="addUser()">
             <h1>{{ welcomeMessage }}</h1>
             <div class="form-group">
                 <label for="UserName" class="col-sm-3 control-label">UserName</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="UserName" placeholder="UserName" ng-bind="user.userName" disabled>
+                    <input type="text" class="form-control" id="UserName" placeholder="UserName" ng-model="user.userName" ng-disabled="!isNewUser">
                 </div>
             </div>
             <div class="form-group">
@@ -67,8 +67,9 @@
             </div>
             <div class="form-group">
                <div class="col-sm-offset-2 col-sm-9">
-                 <input type="submit" class="btn btn-primary" value="Save">
-                 <input type="button" class="btn btn-default" value="Cancel" ng-click="cancelEdit()">
+                    <input type="submit" class="btn btn-success" value="Add" ng-if="isNewUser" ng-click="addUser()">
+                    <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser()">
+                    <input type="button" class="btn btn-default" value="Cancel" ng-click="cancelEdit()">
                </div>
              </div>
         </form>

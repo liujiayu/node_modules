@@ -147,6 +147,10 @@
           return users;
         },
 
+        addUser: function(newUser) {
+          users.push(newUser);
+        },
+
         updateUser: function(id) {
 
         },
