@@ -55,16 +55,20 @@
     <div class="clearfix"></div>
 
     <div class="page-container">
-      <!-- METRONIC: BEGIN CONTENT -->
+        <!-- METRONIC: BEGIN CONTENT -->
         <div class="page-content-wrapper">
           <div class="page-content">
             <!-- METRONIC: BEGIN ACTUAL CONTENT -->
-            <div ui-view class="fade-in-up">
-            </div> 
+            <div ui-view class="fade-in-up"></div> 
             <!-- METRONIC: END ACTUAL CONTENT -->
           </div>  
         </div>
         <!-- METRONIC: END CONTENT -->
+
+        <!-- METRONIC: BEGIN QUICK SIDEBAR -->
+        <a href="javascript:;" class="page-quick-sidebar-toggler"><i class="icon-close"></i></a>
+        <div data-ng-include="'components/quick-sidebar/quick-sidebar.html'" class="page-quick-sidebar-wrapper" ng-controller="QuickSidebarCtrl"></div>
+        <!-- METRONIC: END QUICK SIDEBAR -->
     </div>
 
 
