@@ -12,12 +12,14 @@
       $scope.isNewUser = jQuery.isEmptyObject(user);
       $scope.user = user;
 
+
       // Scope actions
       $scope.addUser = addUser;
       $scope.updateUser = updateUser;
       $scope.cancelEdit = cancelEdit;
 
 
+      // Functions
       function addUser() {
         UserService.addUser($scope.user);
         $modalInstance.close();

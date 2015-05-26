@@ -23,6 +23,7 @@
       $scope.AddUser = AddUser;
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
+      $scope.displayUser = displayUser;
 
 
       function getUsers() {
@@ -50,6 +51,23 @@
           $scope.selected = selectedUser;
         }, function () {
           //
+        });
+      }
+
+      function displayUser(user, size) {
+        var displayedUser = angular.copy(user);
+        displayedUser.readOnly = true;
+
+        var modalInstance = $modal.open({
+          templateUrl: 'app/user/user-detail.html',
+          controller: 'UserDetailCtrl',
+          size: size,
+          windowClass: 'user-modal',
+          resolve: {
+            user: function () {
+              return displayedUser;
+            }
+          }
         });
       }
 
