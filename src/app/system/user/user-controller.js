@@ -5,8 +5,8 @@
     .module('qcs')
     .controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$scope', '$modal', 'UserService'];
-    function UserCtrl($scope, $modal, UserService) {
+    UserCtrl.$inject = ['$scope', '$modal', 'UserService', '$state'];
+    function UserCtrl($scope, $modal, UserService, $state) {
       // Scope variables
       $scope.users = UserService.getUsers();
       $scope.displayedusers = [].concat($scope.users);
@@ -18,26 +18,36 @@
       
 
       // Scope actions
-      $scope.getUsers = getUsers;
-      $scope.getUser = getUser;
       $scope.AddUser = AddUser;
+      $scope.displayUser = displayUser;
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
-      $scope.displayUser = displayUser;
+      $scope.AddUserByModal = AddUserByModal;
+      $scope.displayUserByModal = displayUserByModal;
+      $scope.editUserByModal = editUserByModal;
 
 
-      function getUsers() {
-
+      // Functions
+      function AddUser() {
+        $state.go('user-detail', { isEditable: true, isNewUser: true });
       }
 
-      function getUser() {
-        
+      function displayUser(user) {
+        $state.go('user-detail', { userId: user.id });
       }
 
-      function AddUser(size) {
+      function editUser(user) {
+        $state.go('user-detail', { userId: user.id, isEditable: true });
+      }
+
+      function deleteUser(index) {
+        UserService.deleteUser(index);
+      }
+
+      function AddUserByModal(size) {
         var modalInstance = $modal.open({
-          templateUrl: 'app/user/user-detail.html',
-          controller: 'UserDetailCtrl',
+          templateUrl: 'app/system/user/user-modal.html',
+          controller: 'UserModalCtrl',
           size: size,
           windowClass: 'user-modal',
           resolve: {
@@ -46,21 +56,15 @@
             }
           }
         });
-
-        modalInstance.result.then(function (selectedUser) {
-          $scope.selected = selectedUser;
-        }, function () {
-          //
-        });
       }
 
-      function displayUser(user, size) {
+      function displayUserByModal(user, size) {
         var displayedUser = angular.copy(user);
         displayedUser.readOnly = true;
 
         var modalInstance = $modal.open({
-          templateUrl: 'app/user/user-detail.html',
-          controller: 'UserDetailCtrl',
+          templateUrl: 'app/system/user/user-modal.html',
+          controller: 'UserModalCtrl',
           size: size,
           windowClass: 'user-modal',
           resolve: {
@@ -71,10 +75,10 @@
         });
       }
 
-      function editUser(user, size) {
+      function editUserByModal(user, size) {
         var modalInstance = $modal.open({
-          templateUrl: 'app/user/user-detail.html',
-          controller: 'UserDetailCtrl',
+          templateUrl: 'app/system/user/user-modal.html',
+          controller: 'UserModalCtrl',
           size: size,
           windowClass: 'user-modal',
           resolve: {
@@ -83,16 +87,6 @@
             }
           }
         });
-
-        modalInstance.result.then(function (selectedUser) {
-          $scope.selected = selectedUser;
-        }, function () {
-          //
-        });
-      }
-
-      function deleteUser(index) {
-        UserService.deleteUser(index);
       }
     }
 

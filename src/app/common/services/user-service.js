@@ -9,7 +9,7 @@
     function UserService() {
       var users = [
         {
-          id: 1,
+          id: 0,
           userName: 'admin',
           firstName: 'super',
           lastName: 'cool',
@@ -20,7 +20,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 2,
+          id: 1,
           userName: 'user1',
           firstName: 'Abbie',
           lastName: 'Huang',
@@ -31,7 +31,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 3,
+          id: 2,
           userName: 'user2',
           firstName: 'John',
           lastName: 'Lu',
@@ -42,7 +42,7 @@
           defaultLanguage: 'English'
         },
         {
-          id: 1,
+          id: 0,
           userName: 'admin',
           firstName: 'super',
           lastName: 'cool',
@@ -53,7 +53,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 2,
+          id: 1,
           userName: 'user1',
           firstName: 'Abbie',
           lastName: 'Huang',
@@ -64,7 +64,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 3,
+          id: 2,
           userName: 'user2',
           firstName: 'John',
           lastName: 'Lu',
@@ -75,7 +75,7 @@
           defaultLanguage: 'English'
         },
         {
-          id: 1,
+          id: 0,
           userName: 'admin',
           firstName: 'super',
           lastName: 'cool',
@@ -86,7 +86,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 2,
+          id: 1,
           userName: 'user1',
           firstName: 'Abbie',
           lastName: 'Huang',
@@ -97,7 +97,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 3,
+          id: 2,
           userName: 'user2',
           firstName: 'John',
           lastName: 'Lu',
@@ -108,7 +108,7 @@
           defaultLanguage: 'English'
         },
         {
-          id: 1,
+          id: 0,
           userName: 'admin',
           firstName: 'super',
           lastName: 'cool',
@@ -119,7 +119,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 2,
+          id: 1,
           userName: 'user1',
           firstName: 'Abbie',
           lastName: 'Huang',
@@ -130,7 +130,7 @@
           defaultLanguage: 'Simplified Chinese'
         },
         {
-          id: 3,
+          id: 2,
           userName: 'user2',
           firstName: 'John',
           lastName: 'Lu',
@@ -142,9 +142,14 @@
         }
       ];
 
+
       return {
         getUsers: function() {
           return users;
+        },
+
+        getUser: function(id) {
+          return users[id];
         },
 
         addUser: function(newUser) {

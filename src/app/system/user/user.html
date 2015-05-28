@@ -33,6 +33,7 @@
 
     <div class="portlet-body">
         <button type="button" class="btn btn-success" ng-click="AddUser()">Add</button>
+        <button type="button" class="btn btn-success" ng-click="AddUserByModal()">Add (Modal)</button>
         <h6>Records</h6>
         <table class="table table-bordered table-striped table-hover" st-table="displayedusers" st-safe-src="users">
             <thead>
@@ -40,6 +41,7 @@
                 <th ng-show="showColumn2" st-sort="firstName">Name</th>
                 <th ng-show="showColumn3" st-sort="role">Roles</th>
                 <th ng-show="showColumn4" st-sort="disabledStatus">Status</th>
+                <th ng-show="showColumn5"></th>
                 <th ng-show="showColumn5"></th>
             </thead>
             <tbody>
@@ -53,11 +55,15 @@
                         <a href="" ng-click="editUser(user)"><i class="fa fa-pencil"></i></a>
                         <a href="" ng-click="deleteUser($index)"><i class="fa fa-trash"></i></a>
                     </td>
+                    <td ng-show="showColumn5">
+                        <a href="" ng-click="displayUserByModal(user)"><i class="fa fa-search-plus"></i>Modal</a>
+                        <a href="" ng-click="editUserByModal(user)"><i class="fa fa-pencil"></i>Modal</a>
+                    </td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="5" class="text-center">
+                    <td colspan="6" class="text-center">
                         <div st-pagination="" st-items-by-page="10" st-displayed-pages="5" class="pull-right"></div>
                     </td>
                 </tr>

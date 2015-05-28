@@ -3,10 +3,10 @@
 
   angular
     .module('qcs')
-    .controller('UserDetailCtrl', UserDetailCtrl);
+    .controller('UserModalCtrl', UserModalCtrl);
 
-    UserDetailCtrl.$inject = ['$scope', '$modalInstance', 'UserService', 'user'];
-    function UserDetailCtrl($scope, $modalInstance, UserService, user) {
+    UserModalCtrl.$inject = ['$scope', '$modalInstance', 'UserService', 'user'];
+    function UserModalCtrl($scope, $modalInstance, UserService, user) {
       // Scope variables
       $scope.welcomeMessage = 'This is user detail';
       $scope.isNewUser = jQuery.isEmptyObject(user);

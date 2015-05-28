@@ -24,7 +24,7 @@
       $stateProvider
         .state('tool', {
           url: '/',
-          templateUrl: 'app/tool/tool.html',
+          templateUrl: 'app/system/tool/tool.html',
           controller: 'ToolCtrl',
           resolve: {
               deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -38,7 +38,7 @@
         })
         .state('user', {
           url: '/user',
-          templateUrl: 'app/user/user.html',
+          templateUrl: 'app/system/user/user.html',
           controller: 'UserCtrl',
           resolve: {
               deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -48,6 +48,16 @@
                       files: [] 
                   });
               }]
+          }
+        })
+        .state('user-detail', {
+          url: '/user/:userId',
+          templateUrl: 'app/system/user/user-detail.html',
+          controller: 'UserDetailCtrl',
+          params: { 
+            userId: null, 
+            isEditable: null,
+            isNewUser: null
           }
         });
 
