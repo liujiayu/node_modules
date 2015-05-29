@@ -52,7 +52,9 @@
       function getUserSuccess(response) {
         $scope.users = response.data.aaData;
         $scope.displayedusers = [].concat($scope.users);
-        console.log($scope.users);
+
+        console.log('response: ', response);
+        console.log('$scope.users: ', $scope.users);
       }
 
       function getUserFail(error) {

@@ -49,7 +49,8 @@
         $scope.user.disabledStatus = false;
         $scope.user.defaultLang = 'English';
 
-        console.log($scope.user);
+        console.log('response: ', response);
+        console.log('$scope.user: ', $scope.user);
 
         // Update value to Uniform.js
         // Used to make sure that uniform.js works with angular by calling it's update method when the angular model value updates.
