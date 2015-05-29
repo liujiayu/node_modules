@@ -40,8 +40,8 @@
 
         },
 
-        deleteUser: function(index) {
-          users.splice(index, 1);
+        deleteUser: function(id) {
+          return $http.delete(api.baseUrl + api.user + 'deleteUser/' + id)
         }
       }
     }

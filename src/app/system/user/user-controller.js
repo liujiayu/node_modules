@@ -29,7 +29,7 @@
 
       // Init
       UserService.getUsers()
-        .then(getUserSuccess, getUserFail);
+        .then(getUserSuccess, errorCallback);
 
 
       // Functions
@@ -45,8 +45,9 @@
         $state.go('user-detail', { userId: user.userId, isEditable: true });
       }
 
-      function deleteUser(index) {
-        UserService.deleteUser(index);
+      function deleteUser(id) {
+        UserService.deleteUser(id)
+          .then(deleteUserSuccess, errorCallback);
       }
 
       function getUserSuccess(response) {
@@ -57,7 +58,12 @@
         console.log('$scope.users: ', $scope.users);
       }
 
-      function getUserFail(error) {
+      function deleteUserSuccess(response) {
+        UserService.getUsers()
+          .then(getUserSuccess, errorCallback);
+      }
+
+      function errorCallback(error) {
         console.log(error)
       }
 
