@@ -20,7 +20,7 @@
         }
       }
 
-      var updateOptions = {
+      var options = {
         headers: {
          'Content-Type': 'application/json'
         }
@@ -38,12 +38,12 @@
           return $http.get(api.baseUrl + api.user + 'getUser/' + id);
         },
 
-        addUser: function(newUser) {
-          users.push(newUser);
+        addUser: function(user) {
+          return $http.post(api.baseUrl + api.user + 'createUser', user, options);
         },
 
         updateUser: function(user) {
-          return $http.put(api.baseUrl + api.user + 'updateUser', user, updateOptions);
+          return $http.put(api.baseUrl + api.user + 'updateUser', user, options);
         },
 
         deleteUser: function(id) {

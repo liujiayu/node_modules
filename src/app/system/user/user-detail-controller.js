@@ -22,13 +22,20 @@
 
 
       // Init
-      UserService.getUser($stateParams.userId)
-        .then(getUserSuccess, errorCallback);
+      if(!$stateParams.isNewUser) {
+        UserService.getUser($stateParams.userId)
+          .then(getUserSuccess, errorCallback);  
+      } else {
+        $scope.user = {};
+      }
 
 
       // Functions
-      function addUser() {
-        UserService.addUser($scope.user);
+      function addUser(user) {
+        // Manually set 'defaultLang' as boolean
+        $scope.user.defaultLang = false;
+        UserService.addUser(angular.toJson(user))
+          .then(addUserSuccess, errorCallback);
       }
 
       function getUser(userId) {
@@ -43,6 +50,10 @@
       }
 
       function cancel() {
+        $state.go('user');
+      }
+
+      function addUserSuccess(response) {
         $state.go('user');
       }
 
