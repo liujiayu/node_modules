@@ -69,7 +69,7 @@
             </fieldset>
             <div class="pull-right">
                 <input type="submit" class="btn btn-success" value="Add" ng-if="isNewUser">
-                <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser()" ng-disabled="!isEditable">
+                <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser(user)" ng-disabled="!isEditable">
                 <input type="button" class="btn btn-default" value="Cancel" ng-click="cancel()">
             </div>
         </form>

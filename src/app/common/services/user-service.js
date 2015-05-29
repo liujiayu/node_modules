@@ -7,7 +7,7 @@
 
     UserService.$inject = ['$http', 'api'];
     function UserService($http, api) {
-      var getUsersOptions = {
+      var postOptions = {
         method: 'POST',
         url: api.baseUrl + api.user + 'queryUser',
         headers: {
@@ -20,12 +20,18 @@
         }
       }
 
+      var updateOptions = {
+        headers: {
+         'Content-Type': 'application/json'
+        }
+      }
+
 
       return {
         getUsers: function() {
           // Get local data
           // return $http.get('../../../assets/data/users.json');
-          return $http(getUsersOptions);
+          return $http(postOptions);
         },
 
         getUser: function(id) {
@@ -36,12 +42,12 @@
           users.push(newUser);
         },
 
-        updateUser: function(id) {
-
+        updateUser: function(user) {
+          return $http.put(api.baseUrl + api.user + 'updateUser', user, updateOptions);
         },
 
         deleteUser: function(id) {
-          return $http.delete(api.baseUrl + api.user + 'deleteUser/' + id)
+          return $http.delete(api.baseUrl + api.user + 'deleteUser/' + id);
         }
       }
     }

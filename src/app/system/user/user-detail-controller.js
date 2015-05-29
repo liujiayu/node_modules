@@ -23,7 +23,7 @@
 
       // Init
       UserService.getUser($stateParams.userId)
-        .then(getUserSuccess, getUserFail);
+        .then(getUserSuccess, errorCallback);
 
 
       // Functions
@@ -35,8 +35,11 @@
         UserService.getUser(userId);
       }
 
-      function updateUser(id) {
-        UserService.updateUser(id);
+      function updateUser(user) {
+        // Manually set 'defaultLang' as boolean
+        $scope.user.defaultLang = false;
+        UserService.updateUser(angular.toJson(user))
+          .then(updateUserSuccess, errorCallback);
       }
 
       function cancel() {
@@ -45,6 +48,8 @@
 
       function getUserSuccess(response) {
         $scope.user = response.data.DATA;
+
+        // Mannually set value, becasue API return null for these 3 fields. 
         $scope.user.lockStatus = false;
         $scope.user.disabledStatus = false;
         $scope.user.defaultLang = 'English';
@@ -57,7 +62,11 @@
         $timeout(jQuery.uniform.update, 0);
       }
 
-      function getUserFail(error) {
+      function updateUserSuccess(response) {
+        $state.go('user');
+      }
+
+      function errorCallback(error) {
         console.log(error)
       }
     }
