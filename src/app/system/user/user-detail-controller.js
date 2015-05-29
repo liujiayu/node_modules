@@ -8,8 +8,6 @@
     UserDetailCtrl.$inject = ['$scope', '$state', '$stateParams', '$timeout', 'UserService'];
     function UserDetailCtrl($scope, $state, $stateParams, $timeout, UserService) {
       // Scope variables
-      $scope.welcomeMessage = 'This is user detail';
-      $scope.user = UserService.getUser($stateParams.userId);
       $scope.isNewUser = $stateParams.isNewUser;
       $scope.isEditable = $stateParams.isEditable;
       console.log('isNewUser: ', $stateParams.isNewUser);
@@ -23,9 +21,9 @@
       $scope.cancel = cancel;
 
 
-      // Update value to Uniform.js
-      // Used to make sure that uniform.js works with angular by calling it's update method when the angular model value updates.
-      $timeout(jQuery.uniform.update, 0);
+      // Init
+      UserService.getUser($stateParams.userId)
+        .then(getUserSuccess, getUserFail);
 
 
       // Functions
@@ -43,6 +41,23 @@
 
       function cancel() {
         $state.go('user');
+      }
+
+      function getUserSuccess(response) {
+        $scope.user = response.data.DATA;
+        $scope.user.lockStatus = false;
+        $scope.user.disabledStatus = false;
+        $scope.user.defaultLang = 'English';
+
+        console.log($scope.user);
+
+        // Update value to Uniform.js
+        // Used to make sure that uniform.js works with angular by calling it's update method when the angular model value updates.
+        $timeout(jQuery.uniform.update, 0);
+      }
+
+      function getUserFail(error) {
+        console.log(error)
       }
     }
 

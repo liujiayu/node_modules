@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <label for="UserName" class="col-sm-3 control-label">UserName</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="UserName" placeholder="UserName" ng-model="user.userName" ng-disabled="!isNewUser">
+                        <input type="text" class="form-control" id="UserName" placeholder="UserName" ng-model="user.loginId" ng-disabled="!isNewUser">
                     </div>
                 </div>
                 <div class="form-group">
@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email Address</label>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control" id="email" placeholder="Email Address" ng-model="user.email">
+                    <input type="text" class="form-control" id="email" placeholder="Email Address" ng-model="user.emailAddress">
                     </div>
                 </div>
                 <div class="form-group">
@@ -37,21 +37,10 @@
                     <label class="col-sm-3 control-label">Lock Status</label>
                     <div class="col-sm-9">
                         <label class="radio-inline">
-                            <input type="radio" name="lock-status" id="lock-status-enabled" ng-model="user.lockStatus" value="Unlock">Unlock
+                            <input type="radio" name="lock-status" id="lock-status-enabled" ng-model="user.lockStatus" ng-value="false">Unlock
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="lock-status" id="lock-status-disabled" ng-model="user.lockStatus" value="Lock">Lock
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Disabled Status</label>
-                    <div class="col-sm-9">
-                        <label class="radio-inline">
-                            <input type="radio" name="disabled-status" id="disabled-status-enabled" ng-model="user.disabledStatus" value="Enabled">Enabled
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="disabled-status" id="disabled-status-disabled" ng-model="user.disabledStatus" value="Disabled">Disabled
+                            <input type="radio" name="lock-status" id="lock-status-disabled" ng-model="user.lockStatus" ng-value="true">Lock
                         </label>
                     </div>
                 </div>
@@ -59,10 +48,21 @@
                     <label class="col-sm-3 control-label">Disabled Status</label>
                     <div class="col-sm-9">
                         <label class="radio-inline">
-                            <input type="radio" name="default-language" id="default-language-sc" ng-model="user.defaultLanguage" value="Simplified Chinese">Simplified Chinese
+                            <input type="radio" name="disabled-status" id="disabled-status-enabled" ng-model="user.disabledStatus" ng-value="false">Enabled
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="default-language" id="default-language-en" ng-model="user.defaultLanguage" value="English">English
+                            <input type="radio" name="disabled-status" id="disabled-status-disabled" ng-model="user.disabledStatus" ng-value="true">Disabled
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Disabled Status</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline">
+                            <input type="radio" name="default-language" id="default-language-sc" ng-model="user.defaultLanguage" ng-value="SimplifiedChinese">Simplified Chinese
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="default-language" id="default-language-en" ng-model="user.defaultLanguage" ng-value="English">English
                         </label>
                     </div>
                 </div>

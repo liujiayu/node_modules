@@ -46,10 +46,10 @@
             </thead>
             <tbody>
                 <tr ng-repeat="user in displayedusers | filter:search">
-                    <td ng-show="showColumn1">{{ user.userName }}</td>
+                    <td ng-show="showColumn1">{{ user.loginId }}</td>
                     <td ng-show="showColumn2">{{ user.firstName }}</td>
-                    <td ng-show="showColumn3">{{ user.role }}</td>
-                    <td ng-show="showColumn4">{{ user.disabledStatus }}</td>
+                    <td ng-show="showColumn3">{{ user.roleStr }}</td>
+                    <td ng-show="showColumn4">{{ user.disabledStatus ? 'Disabled' : 'Enabled' }}</td>
                     <td ng-show="showColumn5">
                         <a href="" ng-click="displayUser(user)"><i class="fa fa-search-plus"></i></a>
                         <a href="" ng-click="editUser(user)"><i class="fa fa-pencil"></i></a>

@@ -5,11 +5,11 @@
     .module('qcs')
     .controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$scope', '$modal', 'UserService', '$state'];
-    function UserCtrl($scope, $modal, UserService, $state) {
+    UserCtrl.$inject = ['$scope', '$modal', '$state', 'UserService'];
+    function UserCtrl($scope, $modal, $state, UserService) {
       // Scope variables
-      $scope.users = UserService.getUsers();
-      $scope.displayedusers = [].concat($scope.users);
+      $scope.users = [];
+      $scope.displayedusers = [];
       $scope.showColumn1 = true;
       $scope.showColumn2 = true;
       $scope.showColumn3 = true;
@@ -27,21 +27,36 @@
       $scope.editUserByModal = editUserByModal;
 
 
+      // Init
+      UserService.getUsers()
+        .then(getUserSuccess, getUserFail);
+
+
       // Functions
       function AddUser() {
         $state.go('user-detail', { isEditable: true, isNewUser: true });
       }
 
       function displayUser(user) {
-        $state.go('user-detail', { userId: user.id });
+        $state.go('user-detail', { userId: user.userId });
       }
 
       function editUser(user) {
-        $state.go('user-detail', { userId: user.id, isEditable: true });
+        $state.go('user-detail', { userId: user.userId, isEditable: true });
       }
 
       function deleteUser(index) {
         UserService.deleteUser(index);
+      }
+
+      function getUserSuccess(response) {
+        $scope.users = response.data.aaData;
+        $scope.displayedusers = [].concat($scope.users);
+        console.log($scope.users);
+      }
+
+      function getUserFail(error) {
+        console.log(error)
       }
 
       function AddUserByModal(size) {
