@@ -5,11 +5,11 @@
     .module('qcs')
     .factory('UserService', UserService);
 
-    UserService.$inject = ['$http'];
-    function UserService($http) {
+    UserService.$inject = ['$http', 'api'];
+    function UserService($http, api) {
       var getUsersOptions = {
         method: 'POST',
-        url: 'http://saas.logicsolutions.com.cn/facts_2020-1.0/rest/user/queryUser',
+        url: api.baseUrl + api.user + 'queryUser',
         headers: {
          'Content-Type': 'application/json'
         },
@@ -29,7 +29,7 @@
         },
 
         getUser: function(id) {
-          return $http.get('http://saas.logicsolutions.com.cn/facts_2020-1.0/rest/user/getUser/' + id);
+          return $http.get(api.baseUrl + api.user + 'getUser/' + id);
         },
 
         addUser: function(newUser) {
