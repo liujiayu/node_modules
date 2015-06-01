@@ -1,19 +1,20 @@
 <div class="portlet box blue-madison">
     <div class="portlet-title">
         <div class="caption">
-            <i class="fa fa-globe"></i>User Query
+            <i class="fa fa-search"></i>User Query
         </div>
     </div>
     <div class="portlet-body">
         <span>User Name: </span>
-        <input type="text" ng-model="search.userName" ng-model-options="{ debounce: 300 }">
+        <input type="text" ng-model="search.userName" ng-model-options="{ debounce: 300 }"><hr>
+        <button type="button" class="btn btn-success" ng-click="searchUser()">Search</button>            
     </div>
 </div>
 
 <div class="portlet box blue-madison">
     <div class="portlet-title">
         <div class="caption">
-            <i class="fa fa-globe"></i>User List
+            <i class="fa fa-th-list"></i>User List
         </div>
         <div class="actions">
             <div class="btn-group">
