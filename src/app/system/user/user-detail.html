@@ -1,84 +1,93 @@
 <div class="container-fluid">
     <div class="row">
-        <form class="form-horizontal" ng-submit="addUser(user)">
-            <fieldset ng-disabled="!isEditable">
-                <h1>{{ welcomeMessage }}</h1>
-                <div class="form-group">
-                    <label for="UserName" class="col-sm-3 control-label">UserName</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="UserName" placeholder="UserName" ng-model="user.loginId" ng-disabled="!isNewUser">
-                    </div>
+        <div class="portlet box blue-madison">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-search"></i>User Query
                 </div>
-                <div class="form-group">
-                    <label for="first-name" class="col-sm-3 control-label">First Name</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="first-name" placeholder="First Name" ng-model="user.firstName">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="last-name" class="col-sm-3 control-label">Last Name</label>
-                    <div class="col-sm-9">
-                    <input type="text" class="form-control" id="last-name" placeholder="Last Name" ng-model="user.lastName">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email Address</label>
-                    <div class="col-sm-9">
-                    <input type="text" class="form-control" id="email" placeholder="Email Address" ng-model="user.emailAddress">
-                    </div>
-                </div>
-                <div class="form-group" ng-if="isNewUser">
-                    <label for="password" class="col-sm-3 control-label">Password</label>
-                    <div class="col-sm-9">
-                        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="Role" class="col-sm-3 control-label">Role</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="Role" placeholder="Role" ng-model="user.role">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Lock Status</label>
-                    <div class="col-sm-9">
-                        <label class="radio-inline">
-                            <input type="radio" name="lock-status" id="lock-status-enabled" ng-model="user.lockStatus" ng-value="false">Unlock
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="lock-status" id="lock-status-disabled" ng-model="user.lockStatus" ng-value="true">Lock
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Disabled Status</label>
-                    <div class="col-sm-9">
-                        <label class="radio-inline">
-                            <input type="radio" name="disabled-status" id="disabled-status-enabled" ng-model="user.disabledStatus" ng-value="false">Enabled
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="disabled-status" id="disabled-status-disabled" ng-model="user.disabledStatus" ng-value="true">Disabled
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Disabled Status</label>
-                    <div class="col-sm-9">
-                        <label class="radio-inline">
-                            <input type="radio" name="default-language" id="default-language-sc" ng-model="user.defaultLanguage" ng-value="SimplifiedChinese">Simplified Chinese
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="default-language" id="default-language-en" ng-model="user.defaultLanguage" ng-value="English">English
-                        </label>
-                    </div>
-                </div>
-            </fieldset>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-success" value="Add" ng-if="isNewUser">
-                <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser(user)" ng-disabled="!isEditable">
-                <input type="button" class="btn btn-default" value="Cancel" ng-click="cancel()">
             </div>
-        </form>
+            <div class="portlet-body">
+                <form class="form-horizontal clearfix" ng-submit="addUser(user)">
+                    <fieldset ng-disabled="!isEditable">
+                        <h1>{{ welcomeMessage }}</h1>
+                        <div class="form-group">
+                            <label for="UserName" class="col-sm-3 control-label">UserName</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="UserName" placeholder="UserName" ng-model="user.loginId" ng-disabled="!isNewUser">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name" class="col-sm-3 control-label">First Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="first-name" placeholder="First Name" ng-model="user.firstName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name" class="col-sm-3 control-label">Last Name</label>
+                            <div class="col-sm-9">
+                            <input type="text" class="form-control" id="last-name" placeholder="Last Name" ng-model="user.lastName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">Email Address</label>
+                            <div class="col-sm-9">
+                            <input type="text" class="form-control" id="email" placeholder="Email Address" ng-model="user.emailAddress">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="isNewUser">
+                            <label for="password" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Role" class="col-sm-3 control-label">Role</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="Role" placeholder="Role" ng-model="user.role">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Lock Status</label>
+                            <div class="col-sm-9 radio-list radio-list">
+                                <label class="radio-inline">
+                                    <input type="radio" name="lock-status" id="lock-status-enabled" ng-model="user.lockStatus" ng-value="false">Unlock
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="lock-status" id="lock-status-disabled" ng-model="user.lockStatus" ng-value="true">Lock
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Disabled Status</label>
+                            <div class="col-sm-9 radio-list">
+                                <label class="radio-inline">
+                                    <input type="radio" name="disabled-status" id="disabled-status-enabled" ng-model="user.disabledStatus" ng-value="false">Enabled
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="disabled-status" id="disabled-status-disabled" ng-model="user.disabledStatus" ng-value="true">Disabled
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Disabled Status</label>
+                            <div class="col-sm-9 radio-list">
+                                <label class="radio-inline">
+                                    <input type="radio" name="default-language" id="default-language-sc" ng-model="user.defaultLanguage" ng-value="SimplifiedChinese">Simplified Chinese
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="default-language" id="default-language-en" ng-model="user.defaultLanguage" ng-value="English">English
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Add" ng-if="isNewUser">
+                        <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser(user)" ng-disabled="!isEditable">
+                        <input type="button" class="btn btn-default" value="Cancel" ng-click="cancel()">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
