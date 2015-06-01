@@ -14,7 +14,6 @@
       $scope.showColumn2 = true;
       $scope.showColumn3 = true;
       $scope.showColumn4 = true;
-      $scope.showColumn5 = true;
       
 
       // Scope actions

@@ -26,7 +26,6 @@
                     <label><input type="checkbox" checked ng-model="showColumn2">Name</label>
                     <label><input type="checkbox" checked ng-model="showColumn3">Roles</label>
                     <label><input type="checkbox" checked ng-model="showColumn4">Status</label>
-                    <label><input type="checkbox" checked ng-model="showColumn5">Operation</label>
                 </div>
             </div>
         </div>
@@ -51,12 +50,12 @@
                     <td ng-show="showColumn2">{{ user.firstName }}</td>
                     <td ng-show="showColumn3">{{ user.roleStr }}</td>
                     <td ng-show="showColumn4">{{ user.disabledStatus ? 'Disabled' : 'Enabled' }}</td>
-                    <td ng-show="showColumn5">
+                    <td>
                         <a href="" ng-click="displayUser(user)"><i class="fa fa-search-plus"></i></a>
                         <a href="" ng-click="editUser(user)"><i class="fa fa-pencil"></i></a>
                         <a href="" ng-click="deleteUser(user.userId)"><i class="fa fa-trash"></i></a>
                     </td>
-                    <td ng-show="showColumn5">
+                    <td>
                         <a href="" ng-click="displayUserByModal(user)"><i class="fa fa-search-plus"></i>Modal</a>
                         <a href="" ng-click="editUserByModal(user)"><i class="fa fa-pencil"></i>Modal</a>
                     </td>
