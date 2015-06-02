@@ -46,7 +46,7 @@
         <button type="button" class="btn btn-success" ng-click="AddUserByModal()">Add (Modal)</button>
         <h6>Records</h6>
         <table class="table table-bordered table-striped table-hover dataTable" st-table="displayedusers" st-safe-src="users">
-            <thead th-sorting-style ignore-th="[4, 5]">
+            <thead th-sorting th-ignored="[4, 5]">
                 <th ng-show="showColumn1" st-sort="userName">User Name</th>
                 <th ng-show="showColumn2" st-sort="firstName">Name</th>
                 <th ng-show="showColumn3" st-sort="role">Roles</th>
