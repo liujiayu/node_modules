@@ -14,9 +14,10 @@
          'Content-Type': 'application/json'
         },
         data: {
-          'loginId': '',
-          'pageStart': '0',
-          'pageLength': '-1'
+          "pagingTool": {
+            "currentPage": 1,
+            "pageSize": 100
+          }
         }
       }
 

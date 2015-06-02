@@ -48,7 +48,7 @@ function proxyMiddleware(req, res, next) {
    * for your needs. If you can, you could also check on a context in the url which
    * may be more reliable but can't be generic.
    */
-  if (/\/facts_2020-1.0\/rest\/\w+/.test(req.url) &&
+  if (/\/facts_backend-2.0\/rest\/\w+/.test(req.url) &&
       !/\.(html|css|js|png|jpg|jpeg|gif|ico|xml|rss|txt|eot|svg|ttf|woff|cur)(\?((r|v|rel|rev)=[\-\.\w]*)?)?$/.test(req.url)) {
     // Make sure to delete req.headers.host, otherwise the target server would match the wrong host.
     delete req.headers.host;

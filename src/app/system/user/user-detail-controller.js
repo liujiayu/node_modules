@@ -61,8 +61,8 @@
         $scope.user = response.data.DATA;
 
         // Mannually set value, becasue API return null for these 3 fields. 
-        $scope.user.lockStatus = false;
-        $scope.user.disabledStatus = false;
+        // $scope.user.lockStatus = false;
+        // $scope.user.disabledStatus = false;
         $scope.user.defaultLang = 'English';
 
         console.log('response: ', response);

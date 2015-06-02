@@ -37,11 +37,11 @@
       }
 
       function displayUser(user) {
-        $state.go('user-detail', { userId: user.userId });
+        $state.go('user-detail', { userId: user.id });
       }
 
       function editUser(user) {
-        $state.go('user-detail', { userId: user.userId, isEditable: true });
+        $state.go('user-detail', { userId: user.id, isEditable: true });
       }
 
       function deleteUser(id) {
@@ -50,7 +50,7 @@
       }
 
       function getUserSuccess(response) {
-        $scope.users = response.data.aaData;
+        $scope.users = response.data.DATA;
         $scope.displayedusers = [].concat($scope.users);
 
         console.log('response: ', response);
