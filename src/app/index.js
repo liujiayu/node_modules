@@ -8,7 +8,8 @@
       'ngTouch', 
       'ngSanitize', 
       'ngResource', 
-      'ui.router', 
+      'ui.router',
+      'ui.select', 
       'ui.bootstrap',
       'oc.lazyLoad',
       'smart-table'
