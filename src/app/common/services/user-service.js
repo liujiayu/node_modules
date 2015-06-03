@@ -9,7 +9,7 @@
     function UserService($http, api) {
       var postOptions = {
         method: 'POST',
-        url: api.user + '/queryUser',
+        url: api.user + 'list',
         headers: {
          'Content-Type': 'application/json'
         },
@@ -36,19 +36,19 @@
         },
 
         getUser: function(id) {
-          return $http.get(api.user + '/getUser/' + id);
+          return $http.get(api.user + id);
         },
 
         addUser: function(user) {
-          return $http.post(api.user + '/createUser', user, options);
+          return $http.post(api.user, user, options);
         },
 
         updateUser: function(user) {
-          return $http.put(api.user + '/updateUser', user, options);
+          return $http.put(api.user, user, options);
         },
 
         deleteUser: function(id) {
-          return $http.delete(api.user + '/deleteUser/' + id);
+          return $http.delete(api.user + id);
         }
       }
     }
