@@ -10,6 +10,41 @@
       // Scope variables
       $scope.isNewUser = $stateParams.isNewUser;
       $scope.isEditable = $stateParams.isEditable;
+      $scope.role = {}
+      $scope.role.selected = [];
+      $scope.roles = [
+        {
+            "roleId": 1,
+            "code": "ROOT",
+            "name": null,
+            "level": 0
+        },
+        {
+            "roleId": 2,
+            "code": "EHS_ADM",
+            "name": null,
+            "level": 1
+        },
+        {
+            "roleId": 3,
+            "code": "EHS_SPE",
+            "name": null,
+            "level": 2
+        },
+        {
+            "roleId": 4,
+            "code": "EHS_USR",
+            "name": null,
+            "level": 2
+        },
+        {
+            "roleId": 5,
+            "code": "GUEST",
+            "name": null,
+            "level": 9
+        }
+      ];
+
       console.log('isNewUser: ', $stateParams.isNewUser);
       console.log('isEditable: ', $stateParams.isEditable);
 
@@ -33,7 +68,7 @@
       // Functions
       function addUser(user) {
         // Manually set 'defaultLang' as boolean
-        $scope.user.defaultLang = false;
+        // $scope.user.defaultLang = false;
         UserService.addUser(angular.toJson(user))
           .then(addUserSuccess, errorCallback);
       }
@@ -44,7 +79,8 @@
 
       function updateUser(user) {
         // Manually set 'defaultLang' as boolean
-        $scope.user.defaultLang = false;
+        // $scope.user.defaultLang = false;
+        $scope.user.roleDTOs = $scope.role.selected;
         UserService.updateUser(angular.toJson(user))
           .then(updateUserSuccess, errorCallback);
       }
@@ -59,11 +95,12 @@
 
       function getUserSuccess(response) {
         $scope.user = response.data.DATA;
+        $scope.role.selected = response.data.DATA.roleDTOs;
 
         // Mannually set value, becasue API return null for these 3 fields. 
         // $scope.user.lockStatus = false;
         // $scope.user.disabledStatus = false;
-        $scope.user.defaultLang = 'English';
+        // $scope.user.defaultLang = 'English';
 
         console.log('response: ', response);
         console.log('$scope.user: ', $scope.user);

@@ -43,8 +43,14 @@
                         <div class="form-group">
                             <label for="Role" class="col-sm-3 control-label">Role</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="Role" placeholder="Role" ng-model="user.role">
+                                <ui-select multiple ng-model="role.selected" theme="bootstrap" ng-disabled="disabled" style="width: 100%">
+                                  <ui-select-match placeholder="Select role...">{{$item.code}}</ui-select-match>
+                                  <ui-select-choices repeat="role in roles | propsFilter: {code: $select.search}">
+                                    <div ng-bind-html="role.code | highlight: $select.search"></div>
+                                  </ui-select-choices>
+                                </ui-select>
                             </div>
+
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Lock Status</label>
@@ -69,13 +75,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Disabled Status</label>
+                            <label class="col-sm-3 control-label">Default Language</label>
                             <div class="col-sm-9 radio-list">
                                 <label class="radio-inline">
-                                    <input type="radio" name="default-language" id="default-language-sc" ng-model="user.defaultLanguage" ng-value="SimplifiedChinese">Simplified Chinese
+                                    <input type="radio" name="default-language" id="default-language-sc" ng-model="user.defaultLocal" value="zh_CN">Simplified Chinese
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="default-language" id="default-language-en" ng-model="user.defaultLanguage" ng-value="English">English
+                                    <input type="radio" name="default-language" id="default-language-en" ng-model="user.defaultLocal" value="en_US">English
                                 </label>
                             </div>
                         </div>

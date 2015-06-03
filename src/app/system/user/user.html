@@ -57,9 +57,9 @@
             <tbody>
                 <tr ng-repeat="user in displayedusers | filter:search">
                     <td ng-show="showColumn1">{{ user.loginId }}</td>
-                    <td ng-show="showColumn2">{{ user.firstName }}</td>
-                    <td ng-show="showColumn3">{{ user.roleStr }}</td>
-                    <td ng-show="showColumn4">{{ user.disabledStatus ? 'Disabled' : 'Enabled' }}</td>
+                    <td ng-show="showColumn2">{{ user.userName }}</td>
+                    <td ng-show="showColumn3">{{ user.roleName }}</td>
+                    <td ng-show="showColumn4">{{ user.disabled ? 'Disabled' : 'Enabled' }}</td>
                     <td>
                         <a href="" ng-click="displayUser(user)"><i class="fa fa-search-plus"></i></a>
                         <a href="" ng-click="editUser(user)"><i class="fa fa-pencil"></i></a>
@@ -74,7 +74,7 @@
             <tfoot>
                 <tr>
                     <td colspan="6" class="text-center">
-                        <div st-pagination="" st-items-by-page="10" st-displayed-pages="5" class="pull-right"></div>
+                        <div st-pagination="" st-items-by-page="20" st-displayed-pages="5" class="pull-right"></div>
                     </td>
                 </tr>
             </tfoot>
