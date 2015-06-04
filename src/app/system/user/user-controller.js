@@ -110,7 +110,7 @@
       }
 
       function deleteUserSuccess(response) {
-        UserService.getUsers()
+        UserService.getUsers($scope.queryOption)
           .then(getUserSuccess, errorCallback);
       }
 
