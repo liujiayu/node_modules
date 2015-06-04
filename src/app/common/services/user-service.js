@@ -18,7 +18,16 @@
           pagingTool: {
             currentPage: option.pagination.current || 1,
             pageSize: option.pagination.perPage || 10
-          }
+          },
+          queryCriterias: [
+            {
+              connection: 'and',
+              key: 'login_id',
+              condition: 'like',
+              value: option.search.value || '',
+              isValueADigital: false
+            }
+          ]
         };
       }
 

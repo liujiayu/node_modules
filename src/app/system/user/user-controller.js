@@ -21,6 +21,9 @@
           total: null,
           perPage: 10,
           maxSize: 5
+        },
+        search: {
+          value: null
         }
       };
       
@@ -30,6 +33,7 @@
       $scope.displayUser = displayUser;
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
+      $scope.searchUser = searchUser;
       $scope.AddUserByModal = AddUserByModal;
       $scope.displayUserByModal = displayUserByModal;
       $scope.editUserByModal = editUserByModal;
@@ -40,7 +44,7 @@
         .then(getUserSuccess, errorCallback);
 
 
-      $scope.$watch('queryOption', function(newValue, oldValue, scope) {
+      $scope.$watch('queryOption', function() {
         UserService.getUsers($scope.queryOption)
           .then(getUserSuccess, errorCallback);
       }, true);
@@ -62,6 +66,10 @@
       function deleteUser(id) {
         UserService.deleteUser(id)
           .then(deleteUserSuccess, errorCallback);
+      }
+
+      function searchUser(keyword) {
+         $scope.queryOption.search.value = keyword;
       }
 
       function getUserSuccess(response) {
