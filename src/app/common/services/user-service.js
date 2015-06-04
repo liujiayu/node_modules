@@ -27,6 +27,12 @@
               value: option.search.value || '',
               isValueADigital: false
             }
+          ],
+          queryOrderBies: [
+            {
+              columnName: option.orderBy.name || 'login_id',
+              orderType: option.orderBy.type ? 'asc' : 'desc'
+            }
           ]
         };
       }

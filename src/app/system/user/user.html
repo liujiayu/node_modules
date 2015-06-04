@@ -47,10 +47,10 @@
         <h6>Records</h6>
         <table class="table table-bordered table-striped table-hover dataTable">
             <thead th-sorting th-ignored="[4, 5]">
-                <th ng-show="showColumn1">User Name</th>
-                <th ng-show="showColumn2">Name</th>
-                <th ng-show="showColumn3">Roles</th>
-                <th ng-show="showColumn4">Status</th>
+                <th ng-show="showColumn1" ng-click="sortUser('login_id')">User Name</th>
+                <th ng-show="showColumn2" ng-click="sortUser('first_name')">Name</th>
+                <th ng-show="showColumn3" ng-click="sortUser('disabled')">Roles</th>
+                <th ng-show="showColumn4" ng-click="sortUser('role_name')">Status</th>
                 <th></th>
                 <th></th>
             </thead>

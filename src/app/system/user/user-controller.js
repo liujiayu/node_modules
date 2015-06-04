@@ -24,6 +24,10 @@
         },
         search: {
           value: null
+        },
+        orderBy: {
+          name: null,
+          type: true
         }
       };
 
@@ -34,6 +38,7 @@
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
       $scope.searchUser = searchUser;
+      $scope.sortUser = sortUser;
       $scope.AddUserByModal = AddUserByModal;
       $scope.displayUserByModal = displayUserByModal;
       $scope.editUserByModal = editUserByModal;
@@ -84,7 +89,16 @@
       }
 
       function searchUser(keyword) {
-         $scope.queryOption.search.value = keyword;
+        $scope.queryOption.search.value = keyword;
+      }
+
+      function sortUser(name) {
+        if ($scope.queryOption.orderBy.name === name) {
+          $scope.queryOption.orderBy.type = !$scope.queryOption.orderBy.type;
+        } else {
+          $scope.queryOption.orderBy.type = true;
+          $scope.queryOption.orderBy.name = name;
+        }
       }
 
       function getUserSuccess(response) {
