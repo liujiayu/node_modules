@@ -7,32 +7,26 @@
 
     UserService.$inject = ['$http', 'api'];
     function UserService($http, api) {
-      var postOptions = {
-        method: 'POST',
-        url: api.user + 'list',
+      var config = {
         headers: {
          'Content-Type': 'application/json'
-        },
-        data: {
-          "pagingTool": {
-            "currentPage": 1,
-            "pageSize": 100
+        }
+      }
+
+      function assembleUserOptions(option) {
+        return {
+          pagingTool: {
+            currentPage: option.pagination.current || 1,
+            pageSize: option.pagination.perPage || 10
           }
-        }
+        };
       }
-
-      var options = {
-        headers: {
-         'Content-Type': 'application/json'
-        }
-      }
-
 
       return {
-        getUsers: function() {
+        getUsers: function(queryOption) {
           // Get local data
           // return $http.get('../../../assets/data/users.json');
-          return $http(postOptions);
+          return $http.post(api.user + 'list', assembleUserOptions(queryOption));
         },
 
         getUser: function(id) {
@@ -40,11 +34,11 @@
         },
 
         addUser: function(user) {
-          return $http.post(api.user, user, options);
+          return $http.post(api.user, user, config);
         },
 
         updateUser: function(user) {
-          return $http.put(api.user, user, options);
+          return $http.put(api.user, user, config);
         },
 
         deleteUser: function(id) {

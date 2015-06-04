@@ -9,11 +9,20 @@
     function UserCtrl($scope, $modal, $state, UserService) {
       // Scope variables
       $scope.users = [];
-      $scope.displayedusers = [];
+
       $scope.showColumn1 = true;
       $scope.showColumn2 = true;
       $scope.showColumn3 = true;
       $scope.showColumn4 = true;
+
+      $scope.queryOption = {
+        pagination: {
+          current: 1,
+          total: null,
+          perPage: 10,
+          maxSize: 5
+        }
+      };
       
 
       // Scope actions
@@ -27,8 +36,14 @@
 
 
       // Init
-      UserService.getUsers()
+      UserService.getUsers($scope.queryOption)
         .then(getUserSuccess, errorCallback);
+
+
+      $scope.$watch('queryOption', function(newValue, oldValue, scope) {
+        UserService.getUsers($scope.queryOption)
+          .then(getUserSuccess, errorCallback);
+      }, true);
 
 
       // Functions
@@ -51,7 +66,7 @@
 
       function getUserSuccess(response) {
         $scope.users = response.data.DATA;
-        $scope.displayedusers = [].concat($scope.users);
+        $scope.queryOption.pagination.total = response.data.TOTAL_COUNT;
 
         console.log('response: ', response);
         console.log('$scope.users: ', $scope.users);

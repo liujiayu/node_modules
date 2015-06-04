@@ -69,6 +69,7 @@
       function addUser(user) {
         // Manually set 'defaultLang' as boolean
         // $scope.user.defaultLang = false;
+        $scope.user.roleDTOs = $scope.role.selected;
         UserService.addUser(angular.toJson(user))
           .then(addUserSuccess, errorCallback);
       }

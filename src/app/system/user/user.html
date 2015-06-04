@@ -41,21 +41,21 @@
         </div>
     </div>
 
-    <div class="portlet-body">
+    <div class="portlet-body clearfix">
         <button type="button" class="btn btn-success" ng-click="AddUser()">Add</button>
         <button type="button" class="btn btn-success" ng-click="AddUserByModal()">Add (Modal)</button>
         <h6>Records</h6>
-        <table class="table table-bordered table-striped table-hover dataTable" st-table="displayedusers" st-safe-src="users">
+        <table class="table table-bordered table-striped table-hover dataTable">
             <thead th-sorting th-ignored="[4, 5]">
-                <th ng-show="showColumn1" st-sort="userName">User Name</th>
-                <th ng-show="showColumn2" st-sort="firstName">Name</th>
-                <th ng-show="showColumn3" st-sort="role">Roles</th>
-                <th ng-show="showColumn4" st-sort="disabledStatus">Status</th>
+                <th ng-show="showColumn1">User Name</th>
+                <th ng-show="showColumn2">Name</th>
+                <th ng-show="showColumn3">Roles</th>
+                <th ng-show="showColumn4">Status</th>
                 <th></th>
                 <th></th>
             </thead>
             <tbody>
-                <tr ng-repeat="user in displayedusers | filter:search">
+                <tr ng-repeat="user in users | filter:search">
                     <td ng-show="showColumn1">{{ user.loginId }}</td>
                     <td ng-show="showColumn2">{{ user.userName }}</td>
                     <td ng-show="showColumn3">{{ user.roleName }}</td>
@@ -71,13 +71,7 @@
                     </td>
                 </tr>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="6" class="text-center">
-                        <div st-pagination="" st-items-by-page="20" st-displayed-pages="5" class="pull-right"></div>
-                    </td>
-                </tr>
-            </tfoot>
         </table>
+        <pagination class="pagination pull-right" ng-model="queryOption.pagination.current" total-items="queryOption.pagination.total" items-per-page="queryOption.pagination.perPage" max-size="queryOption.pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>   
     </div>
 </div>
