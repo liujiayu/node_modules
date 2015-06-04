@@ -26,7 +26,7 @@
           value: null
         }
       };
-      
+
 
       // Scope actions
       $scope.AddUser = AddUser;
@@ -40,17 +40,32 @@
 
 
       // Init
-      UserService.getUsers($scope.queryOption)
-        .then(getUserSuccess, errorCallback);
+      init();
 
 
+      // Watcher
       $scope.$watch('queryOption', function() {
-        UserService.getUsers($scope.queryOption)
-          .then(getUserSuccess, errorCallback);
+        init();
       }, true);
 
 
       // Functions
+      function init(argument) {
+        var total = $scope.queryOption.pagination.total,
+            current = $scope.queryOption.pagination.current,
+            perPage = $scope.queryOption.pagination.perPage,
+            isLastPage = ((perPage * current) >= total);
+
+        UserService.getUsers($scope.queryOption)
+          .then(getUserSuccess, errorCallback);
+
+        $scope.userIndex = {
+          first: perPage * (current - 1) + 1,
+          last: isLastPage ? total : perPage * current,
+          total: total
+        }
+      }
+
       function AddUser() {
         $state.go('user-detail', { isEditable: true, isNewUser: true });
       }

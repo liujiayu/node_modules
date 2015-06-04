@@ -72,6 +72,9 @@
                 </tr>
             </tbody>
         </table>
+        <small>
+            Showing {{ userIndex.first }} - {{ userIndex.last }} of {{ userIndex.total }} records.
+        </small>
         <pagination class="pagination pull-right" ng-model="queryOption.pagination.current" total-items="queryOption.pagination.total" items-per-page="queryOption.pagination.perPage" max-size="queryOption.pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>   
     </div>
 </div>
