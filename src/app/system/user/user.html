@@ -56,9 +56,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="user in users">
-                    <td ng-show="showColumn1">{{ user.loginId }}</td>
-                    <td ng-show="showColumn2">{{ user.userName }}</td>
-                    <td ng-show="showColumn3">{{ user.roleName }}</td>
+                    <td ng-show="showColumn1">{{ user.login_id }}</td>
+                    <td ng-show="showColumn2">{{ user.first_name }}</td>
+                    <td ng-show="showColumn3">{{ user.role_name }}</td>
                     <td ng-show="showColumn4">{{ user.disabled ? 'Disabled' : 'Enabled' }}</td>
                     <td>
                         <a href="" ng-click="displayUser(user)"><i class="fa fa-search-plus"></i></a>
@@ -73,7 +73,7 @@
             </tbody>
         </table>
         <small>
-            Showing {{ userIndex.first }} - {{ userIndex.last }} of {{ userIndex.total }} records.
+            Showing {{ userIndex.first }} - {{ userIndex.last }} of {{ userIndex.total }} entries.
         </small>
         <pagination class="pagination pull-right" ng-model="queryOption.pagination.current" total-items="queryOption.pagination.total" items-per-page="queryOption.pagination.perPage" max-size="queryOption.pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>   
     </div>
