@@ -80,8 +80,13 @@ gulp.task('misc', function () {
     .pipe(gulp.dest(paths.dist + '/'));
 });
 
+gulp.task('metronic', function () {
+  return gulp.src(paths.src + '/assets/metronic/**/*')
+    .pipe(gulp.dest(paths.dist + '/assets/metronic/'));
+});
+
 gulp.task('clean', function (done) {
   $.del([paths.dist + '/', paths.tmp + '/'], done);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+gulp.task('build', ['html', 'images', 'fonts', 'misc', 'metronic']);
