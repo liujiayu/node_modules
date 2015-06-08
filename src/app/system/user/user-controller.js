@@ -45,30 +45,21 @@
 
 
       // Init
-      init();
+      getUsers();
 
 
       // Watcher
-      $scope.$watch('queryOption', function() {
-        init();
-      }, true);
+      $scope.$watch('queryOption', function(newValue, oldValue) {
+        if (newValue !== oldValue) { 
+          getUsers(); 
+        }
+      });
 
 
       // Functions
-      function init(argument) {
-        var total = $scope.queryOption.pagination.total,
-            current = $scope.queryOption.pagination.current,
-            perPage = $scope.queryOption.pagination.perPage,
-            isLastPage = ((perPage * current) >= total);
-
+      function getUsers() {
         UserService.getUsers($scope.queryOption)
           .then(getUserSuccess, errorCallback);
-
-        $scope.userIndex = {
-          first: perPage * (current - 1) + 1,
-          last: isLastPage ? total : perPage * current,
-          total: total
-        }
       }
 
       function AddUser() {
@@ -102,8 +93,21 @@
       }
 
       function getUserSuccess(response) {
+        var total, current, perPage, isLastPage;
+
         $scope.users = response.data.DATA;
         $scope.queryOption.pagination.total = response.data.TOTAL_COUNT;
+
+        total = $scope.queryOption.pagination.total;
+        current = $scope.queryOption.pagination.current;
+        perPage = $scope.queryOption.pagination.perPage;
+        isLastPage = ((perPage * current) >= total);
+
+        $scope.userIndex = {
+          first: perPage * (current - 1) + 1,
+          last: isLastPage ? total : perPage * current,
+          total: total
+        };
 
         console.log('response: ', response);
         console.log('$scope.users: ', $scope.users);
