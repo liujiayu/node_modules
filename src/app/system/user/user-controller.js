@@ -45,23 +45,12 @@
 
 
       // Init
-      getUsers();
-
-
-      // Watcher
-      $scope.$watch('queryOption', function(newValue, oldValue) {
-        if (newValue !== oldValue) { 
-          getUsers(); 
-        }
-      });
+      UserService.getUsers($scope.queryOption)
+        .then(getUserSuccess, errorCallback)
+        .then(initListener);
 
 
       // Functions
-      function getUsers() {
-        UserService.getUsers($scope.queryOption)
-          .then(getUserSuccess, errorCallback);
-      }
-
       function AddUser() {
         $state.go('user-detail', { isEditable: true, isNewUser: true });
       }
@@ -120,6 +109,15 @@
 
       function errorCallback(error) {
         console.log(error)
+      }
+
+      function initListener() {
+        $scope.$watch('queryOption', function(newValue, oldValue) {
+          if (newValue !== oldValue) { 
+            UserService.getUsers($scope.queryOption)
+              .then(getUserSuccess, errorCallback);
+          }
+        }, true);
       }
 
       function AddUserByModal(size) {
