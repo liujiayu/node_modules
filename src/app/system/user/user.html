@@ -44,7 +44,18 @@
     <div class="portlet-body clearfix">
         <button type="button" class="btn btn-success" ng-click="AddUser()">Add</button>
         <button type="button" class="btn btn-success" ng-click="AddUserByModal()">Add (Modal)</button>
-        <h6>Records</h6>
+        <form class="form-inline entry-per-page">
+            <div class="form-group">
+                Show
+                <ui-select ng-model="queryOption.pagination.perPage" theme="select2" class="form-control" title="Choose a person">
+                  <ui-select-match>{{$select.selected}}</ui-select-match>
+                  <ui-select-choices repeat="item in [10, 20, 50] | filter: $select.search">
+                    <div ng-bind-html="item | highlight: $select.search"></div>
+                  </ui-select-choices>
+                </ui-select>
+                entries
+            </div>
+        </form>
         <table class="table table-bordered table-striped table-hover dataTable">
             <thead th-sorting th-ignored="[4, 5]">
                 <th ng-show="showColumn1" ng-click="sortUser('login_id')">User Name</th>
