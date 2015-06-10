@@ -63,7 +63,12 @@
         </div>
     </div>
 
-    <div class="portlet-body clearfix">
+    <div class="portlet-body clearfix position-base">
+        <div ng-if="loading" class="page-spinner-bar page-spinner-bar--local">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
         <div class="form-actions">
             <div class="row">
                 <div class="form-group col-md-12 col-sm-12">
@@ -90,7 +95,10 @@
                 <th></th>
             </thead>
             <tbody>
-                <tr ng-repeat="user in users">
+                <tr ng-if="loading" ng-repeat="_ in [] | range:queryOption.pagination.perPage">
+                    <td ng-repeat="_ in [] | range:6">&nbsp;</td>
+                </tr>
+                <tr ng-if="!loading" ng-repeat="user in users">
                     <td ng-show="showColumn1">{{ user.login_id }}</td>
                     <td ng-show="showColumn2">{{ user.first_name }}</td>
                     <td ng-show="showColumn3">{{ user.role_name }}</td>
@@ -107,7 +115,7 @@
                 </tr>
             </tbody>
         </table>
-        <small>
+        <small ng-if="!loading">
             Showing {{ userIndex.first }} - {{ userIndex.last }} of {{ userIndex.total }} entries.
         </small>
         <pagination class="pagination pull-right" ng-model="queryOption.pagination.current" total-items="queryOption.pagination.total" items-per-page="queryOption.pagination.perPage" max-size="queryOption.pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>

@@ -8,6 +8,7 @@
     UserCtrl.$inject = ['$scope', '$modal', '$state', 'UserService'];
     function UserCtrl($scope, $modal, $state, UserService) {
       // Scope variables
+      $scope.loading = true;
       $scope.users = [];
 
       $scope.showColumn1 = true;
@@ -84,6 +85,7 @@
       function getUserSuccess(response) {
         var total, current, perPage, isLastPage;
 
+        $scope.loading = false;
         $scope.users = response.data.DATA;
         $scope.queryOption.pagination.total = response.data.TOTAL_COUNT;
 
@@ -114,6 +116,7 @@
       function initListener() {
         $scope.$watch('queryOption', function(newValue, oldValue) {
           if (newValue !== oldValue) { 
+            $scope.loading = true;
             UserService.getUsers($scope.queryOption)
               .then(getUserSuccess, errorCallback);
           }
