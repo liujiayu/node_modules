@@ -43,8 +43,18 @@
                     connection: 'and',
                     key: key,
                     condition: '=',
-                    value: value,
+                    value: Boolean(value),
                     isValueADigital: true
+                  }
+                );
+              } else if (jQuery.type(value) === 'object') {
+                queryCriterias.push(
+                  {
+                    connection: 'and',
+                    key: key,
+                    condition: 'like',
+                    value: value.name,
+                    isValueADigital: false
                   }
                 );
               } else if (jQuery.type(value) === 'array') {

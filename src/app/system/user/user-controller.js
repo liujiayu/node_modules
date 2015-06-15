@@ -37,7 +37,20 @@
           last_name: null,
           email_primary: null,
           disabled: null,
+          locked: null,
+          default_locale: null
       };
+
+      $scope.default_locale = [
+        {
+          name: 'en_US',
+          value: 'English'
+        },
+        {
+          name: 'zh_CN',
+          value: 'Simplified Chinese'
+        }
+      ]
 
 
       // Scope actions
