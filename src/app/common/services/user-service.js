@@ -13,21 +13,42 @@
         }
       }
 
+      function handlingQuery(searchKeys) {
+        if (jQuery.isEmptyObject(searchKeys)) {
+          return [{
+            connection: 'and',
+            key: 'login_id',
+            condition: 'like',
+            value: '',
+            isValueADigital: false
+          }];
+        } else {
+          var queryCriterias = [];
+          angular.forEach(searchKeys, function(value, key){
+            if (value !== null) {
+              queryCriterias.push(
+                {
+                  connection: 'and',
+                  key: key,
+                  condition: 'like',
+                  value: value,
+                  isValueADigital: false
+                }
+              );
+            }
+          });
+          return queryCriterias;
+        }
+      }
+
       function assembleUserOptions(option) {
+        console.log('queryCriterias', handlingQuery(option.search));
         return {
           pagingTool: {
             currentPage: option.pagination.current || 1,
             pageSize: option.pagination.perPage || 10
           },
-          queryCriterias: [
-            {
-              connection: 'and',
-              key: 'login_id',
-              condition: 'like',
-              value: option.search.value || '',
-              isValueADigital: false
-            }
-          ],
+          queryCriterias: handlingQuery(option.search),
           queryOrderBies: [
             {
               columnName: option.orderBy.name || 'login_id',

@@ -24,7 +24,6 @@
           maxSize: 5
         },
         search: {
-          value: null
         },
         orderBy: {
           name: null,
@@ -32,15 +31,33 @@
         }
       };
 
+      $scope.search = {
+          login_id: null,
+          first_name: null,
+          last_name: null,
+          email_primary: null
+      };
+
+      // $scope.disabledStatus = [
+      //   {
+      //     name: 'Disabled',
+      //     value: true
+      //   },
+      //   {
+      //     name: 'Enabled',
+      //     value: false
+      //   }
+      // ];
+
 
       // Scope actions
-      $scope.AddUser = AddUser;
+      $scope.addUser = addUser;
       $scope.displayUser = displayUser;
       $scope.editUser = editUser;
       $scope.deleteUser = deleteUser;
       $scope.searchUser = searchUser;
       $scope.sortUser = sortUser;
-      $scope.AddUserByModal = AddUserByModal;
+      $scope.addUserByModal = addUserByModal;
       $scope.displayUserByModal = displayUserByModal;
       $scope.editUserByModal = editUserByModal;
 
@@ -52,7 +69,7 @@
 
 
       // Functions
-      function AddUser() {
+      function addUser() {
         $state.go('user-detail', { isEditable: true, isNewUser: true });
       }
 
@@ -69,8 +86,9 @@
           .then(deleteUserSuccess, errorCallback);
       }
 
-      function searchUser(keyword) {
-        $scope.queryOption.search.value = keyword;
+      function searchUser() {
+        console.log($scope.search);
+        $scope.queryOption.search = angular.copy($scope.search);
       }
 
       function sortUser(name) {
@@ -119,11 +137,12 @@
             $scope.loading = true;
             UserService.getUsers($scope.queryOption)
               .then(getUserSuccess, errorCallback);
+              console.log($scope.queryOption)
           }
         }, true);
       }
 
-      function AddUserByModal(size) {
+      function addUserByModal(size) {
         var modalInstance = $modal.open({
           templateUrl: 'app/system/user/user-modal.html',
           controller: 'UserModalCtrl',
