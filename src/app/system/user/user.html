@@ -25,33 +25,33 @@
     <div class="portlet-body">
         <form class="form-horizontal" ng-submit="searchUser()">
             <div class="form-group">
-                <label for="search-keyword" class="col-sm-2 control-label">Username: </label>
+                <label for="username" class="col-sm-2 control-label">Username: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="User Name" ng-model="search.login_id">
+                    <input type="text" class="form-control" id="username" placeholder="User Name" ng-model="search.login_id">
                 </div>
             </div>
             <div class="form-group">
-                <label for="search-keyword" class="col-sm-2 control-label">First Name: </label>
+                <label for="first-name" class="col-sm-2 control-label">First Name: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="User Name" ng-model="search.first_name">
+                    <input type="text" class="form-control" id="first-name" placeholder="First Name" ng-model="search.first_name">
                 </div>
             </div>
             <div class="form-group">
-                <label for="search-keyword" class="col-sm-2 control-label">Last Name: </label>
+                <label for="last-name" class="col-sm-2 control-label">Last Name: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="User Name" ng-model="search.last_name">
+                    <input type="text" class="form-control" id="last-name" placeholder="Last Name" ng-model="search.last_name">
                 </div>
             </div>
             <div class="form-group">
-                <label for="search-keyword" class="col-sm-2 control-label">Email Address: </label>
+                <label for="email" class="col-sm-2 control-label">Email Address: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="User Name" ng-model="search.email_primary">
+                    <input type="text" class="form-control" id="email" placeholder="Email Address" ng-model="search.email_primary">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2">
                     <ui-select ng-model="search.disabled" theme="select2" class="form-control" title="Choose a status">
-                        <ui-select-match placeholder="Select disabled status">Disabled Status: {{ $select.selected ? 'Disabled' : 'Enabled' }}</ui-select-match>
+                        <ui-select-match placeholder="Select status">Disabled Status: {{ $select.selected ? 'Disabled' : 'Enabled' }}</ui-select-match>
                         <ui-select-choices repeat="item in [false, true] | filter: $select.search">
                             <div ng-bind-html="item ? 'Disabled' : 'Enabled' | highlight: $select.search"></div>
                         </ui-select-choices>
@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-sm-offset-2 col-sm-12">
                         <button type="submit" class="btn btn-success" ><i class="fa fa-search"/> Search</button>
-                        <button type="button" ng-click="search.keyword='';searchUser('')" class="btn default">Reset</button>
+                        <button type="button" ng-click="resetSearch()" class="btn default">Reset</button>
                     </div>
                 </div>
             </div>

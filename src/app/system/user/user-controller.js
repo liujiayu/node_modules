@@ -63,6 +63,7 @@
       $scope.addUserByModal = addUserByModal;
       $scope.displayUserByModal = displayUserByModal;
       $scope.editUserByModal = editUserByModal;
+      $scope.resetSearch = resetSearch;
 
 
       // Init
@@ -188,6 +189,11 @@
             }
           }
         });
+      }
+
+      function resetSearch() {
+        $scope.search = {}
+        $scope.queryOption.search = {}
       }
     }
 
