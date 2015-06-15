@@ -78,6 +78,11 @@
                     </ui-select>
                 </div>
             </div>
+            <div class="form-group">
+            <label ng-repeat="role in roles">
+                  <input type="checkbox" checklist-model="search.role_name" checklist-value="role"> {{role}}
+                </label>
+            </div>
             <hr>
             <div class="form-actions">
                 <div class="row">

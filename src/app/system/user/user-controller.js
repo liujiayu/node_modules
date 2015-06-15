@@ -38,7 +38,8 @@
           email_primary: null,
           disabled: null,
           locked: null,
-          default_locale: null
+          default_locale: null,
+          role_name: []
       };
 
       $scope.default_locale = [
@@ -50,7 +51,9 @@
           name: 'zh_CN',
           value: 'Simplified Chinese'
         }
-      ]
+      ];
+
+      $scope.roles = ['Super Admin', 'EHS Admin', 'EHS Specialist', 'EHS User', 'Guest'];
 
 
       // Scope actions
@@ -91,7 +94,6 @@
       }
 
       function searchUser() {
-        console.log($scope.search);
         $scope.queryOption.search = angular.copy($scope.search);
       }
 

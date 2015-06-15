@@ -26,7 +26,6 @@
           var queryCriterias = [];
           angular.forEach(searchKeys, function(value, key){
             if (value !== null) {
-              console.log(jQuery.type(value));
               if (jQuery.type(value) === 'string') {
                 queryCriterias.push(
                   {
@@ -61,11 +60,11 @@
                 for (var i = 0; i < value.length; i++) {
                   queryCriterias.push(
                     {
-                      connection: 'or',
+                      connection: 'and',
                       key: key,
-                      condition: '=',
+                      condition: 'like',
                       value: value[i],
-                      isValueADigital: true
+                      isValueADigital: false
                     }
                   );
                 }

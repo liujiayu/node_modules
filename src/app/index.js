@@ -12,7 +12,8 @@
       'ui.select', 
       'ui.bootstrap',
       'oc.lazyLoad',
-      'smart-table'
+      'smart-table',
+      'checklist-model'
     ])
     .config(lazyLoad)
     .config(state)
