@@ -26,15 +26,40 @@
           var queryCriterias = [];
           angular.forEach(searchKeys, function(value, key){
             if (value !== null) {
-              queryCriterias.push(
-                {
-                  connection: 'and',
-                  key: key,
-                  condition: 'like',
-                  value: value,
-                  isValueADigital: false
+              console.log(jQuery.type(value));
+              if (jQuery.type(value) === 'string') {
+                queryCriterias.push(
+                  {
+                    connection: 'and',
+                    key: key,
+                    condition: 'like',
+                    value: value,
+                    isValueADigital: false
+                  }
+                );
+              } else if (jQuery.type(value) === 'boolean') {
+                queryCriterias.push(
+                  {
+                    connection: 'and',
+                    key: key,
+                    condition: '=',
+                    value: value,
+                    isValueADigital: true
+                  }
+                );
+              } else if (jQuery.type(value) === 'array') {
+                for (var i = 0; i < value.length; i++) {
+                  queryCriterias.push(
+                    {
+                      connection: 'or',
+                      key: key,
+                      condition: '=',
+                      value: value[i],
+                      isValueADigital: true
+                    }
+                  );
                 }
-              );
+              }
             }
           });
           return queryCriterias;

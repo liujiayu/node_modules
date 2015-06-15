@@ -35,19 +35,9 @@
           login_id: null,
           first_name: null,
           last_name: null,
-          email_primary: null
+          email_primary: null,
+          disabled: null,
       };
-
-      // $scope.disabledStatus = [
-      //   {
-      //     name: 'Disabled',
-      //     value: true
-      //   },
-      //   {
-      //     name: 'Enabled',
-      //     value: false
-      //   }
-      // ];
 
 
       // Scope actions
